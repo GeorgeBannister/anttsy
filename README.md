@@ -23,5 +23,5 @@ print(FG.c101 + BG.c202 + "Example text" + RESET)
 > **Note**
 > This library currently doesn't enable ANSI codes on Windows (Use colorama)
 
-> **NOTE**
+> **Note**
 > This library doesn't check whether you are in a tty.
