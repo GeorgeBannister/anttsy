@@ -1,16 +1,18 @@
 """
-8-bit codes with term reset added on.
+8-bit codes.
 
 ..  code-block:: python
     # Make text foreground pink
-    from anttsy.bit8w import FG
+    from anttsy.eight_bit import FG
     print("Example text" @ FG.c206)
 """
 
-from anttsy.utils import Bit8Slots, StrWrap
+__all__ = ['BG', 'FG', 'RESET']
+
+from anttsy.utils import RESET, Bit8Slots, StrWrap
 
 
-def _populate[A](cls: A = None, pre: int = 3) -> A:
+def _populate(cls=None, pre: int = 3):
     def wrap(cls):
         for x in range(256):
             setattr(cls, 'c' + str(x), StrWrap(f'\033[{pre}8;5;{x}m'))
@@ -23,9 +25,9 @@ def _populate[A](cls: A = None, pre: int = 3) -> A:
 
 @_populate(pre=3)
 class FG(Bit8Slots):
-    """Foreground wrapper"""
+    """Foreground color codes"""
 
 
 @_populate(pre=4)
 class BG(Bit8Slots):
-    """Background wrapper"""
+    """Background color codes"""

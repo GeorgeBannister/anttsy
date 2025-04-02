@@ -23,6 +23,12 @@ class StrWrap:
     def __rmatmul__(self: StrWrap, other) -> str:
         return self.__matmul__(other)
 
+    def __str__(self: StrWrap) -> str:
+        return self.prelude
+
+    def __add__(self, other):
+        return str(self) + other
+
 
 class Bit8Slots:
     """Give 8-bit color slots to a class"""
